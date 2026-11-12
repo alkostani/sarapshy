@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Қатысушылар | Sarapshy | ҚҚДИ</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Участники медиапроекта «Sarapshy»: должности, профессиональные научные направления и направления по этике.">
+<meta name="theme-color" content="#33214A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: the Sarapshy programme site's header, hero and footer; a white filter band; a portrait grid on the warm page background. */
+/* Tokens copied from the programme site (sarapshy.kipd.kz, assets/css/style.css). Light-only, like the programme site. */
+:root{
+  --brand-primary:#512A72; --brand-accent:#6B4590; --brand-tint:#EFE8F3; --brand-deep:#33214A;
+  --bg:#F6F3EF; --surface:#FFFFFF; --text:#221D26; --muted:#5E5766; --border:#8E8796; --line:#E6E0E4;
+  --on-deep:#DCD2E3; --on-deep-dim:#CBBBD6; --white:#FFFFFF; --scrim:rgba(34,29,38,.62);
+  --radius:8px; --font:"Mulish",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --focus:0 0 0 3px var(--surface),0 0 0 5px var(--brand-accent);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:1rem;line-height:1.55;overflow-wrap:break-word}
+img{max-width:100%}
+:focus-visible{outline:none;box-shadow:var(--focus);border-radius:4px}
+[hidden]{display:none!important}
+.container{width:100%;max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Header */
+.site-header{background:var(--brand-deep)}
+.header-inner{display:flex;align-items:center;gap:20px;min-height:88px;padding-block:14px}
+.brand-mki{display:flex;align-items:center;align-self:stretch;padding-right:20px;border-right:1px solid rgba(255,255,255,.22)}
+.brand-logo-mki{display:block;height:clamp(19px,6.2vw,42px);width:auto;max-width:none}
+.brand{display:flex;align-items:center;min-width:0}
+.brand-logo{display:block;height:clamp(28px,8.6vw,60px);width:auto;max-width:none}
+.lang-switch{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
+.lang-btn{min-width:44px;min-height:44px;padding:0 6px;background:none;border:0;border-bottom:2px solid transparent;font:inherit;font-weight:700;font-size:.875rem;letter-spacing:.02em;color:var(--on-deep-dim);cursor:pointer}
+.lang-btn:hover{color:var(--white)}
+.lang-btn[aria-pressed="true"]{color:var(--white);border-bottom-color:var(--white)}
+.site-header :focus-visible{box-shadow:0 0 0 2px var(--brand-deep),0 0 0 4px var(--white)}
+.brand-text{font-weight:800;font-size:1.5rem;letter-spacing:.01em;color:var(--white)}
+.brand-sub{font-weight:600;font-size:.875rem;color:var(--on-deep-dim);margin-left:10px}
+
+/* Hero */
+.hero{background:var(--bg);padding-block:40px 44px;border-bottom:1px solid var(--line)}
+.hero-title{margin:0 0 14px;font-weight:800;line-height:1.1;letter-spacing:-.015em;font-size:clamp(2rem,4.5vw + 1rem,3.5rem);color:var(--text);max-width:860px;text-wrap:balance}
+.hero-accent{color:var(--brand-primary);white-space:nowrap}
+.hero-support{margin:0 0 24px;font-size:clamp(1.0625rem,1vw + .8rem,1.375rem);max-width:48ch;color:var(--muted)}
+.hero-facts{display:flex;flex-wrap:wrap;gap:16px 40px;margin:0}
+.fact{display:flex;flex-direction:column;gap:2px;padding:2px 0 2px 14px;border-left:3px solid var(--brand-primary)}
+.fact span{font-size:.875rem;color:var(--muted)}
+.fact strong{font-size:1.1875rem;color:var(--text);font-variant-numeric:tabular-nums}
+
+/* Filter band */
+.hero-about{margin:0 0 28px;max-width:72ch}
+.hero-about p{margin:0 0 12px;font-size:1.0625rem;color:var(--text)}
+.hero-about p:last-child{margin-bottom:0}
+.filters{background:var(--bg);padding-block:40px 24px}
+.filters-inner{display:grid;gap:16px}
+.section-title{margin:0;font-size:1.5rem;font-weight:800;color:var(--brand-primary)}
+.search-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.search-row input{background:var(--surface);flex:1 1 280px;min-width:0;min-height:48px;font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px}
+.count{font-size:.9375rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.chips-label{font-size:.875rem;font-weight:700;color:var(--muted);margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.9375rem;font-weight:600;line-height:1.25;min-height:40px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:var(--radius);padding:8px 12px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:background-color .15s,border-color .15s}
+.chip .n{font-weight:700;font-size:.8125rem;color:var(--muted)}
+.chip:hover{border-color:var(--brand-accent)}
+.chip[aria-pressed="true"]{background:var(--brand-tint);border-color:var(--brand-primary);color:var(--brand-primary)}
+.chip[aria-pressed="true"] .n{color:var(--brand-primary)}
+
+/* Grid */
+.people{padding-block:8px 64px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:20px}
+.card{font:inherit;color:inherit;text-align:left;cursor:pointer;display:grid;grid-template-rows:auto 1fr;min-width:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .15s,transform .2s}
+.card:hover{border-color:var(--brand-accent);transform:translateY(-2px)}
+.ph{aspect-ratio:3/4;max-width:100%;background:var(--line);position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.meta{display:grid;gap:8px;align-content:start;padding:14px 16px 18px;min-width:0}
+.nm{font-weight:800;font-size:1.0625rem;line-height:1.25;color:var(--text)}
+.nm span{display:block;font-weight:600;font-size:.9375rem;color:var(--text)}
+.deg{justify-self:start;font-weight:700;font-size:.75rem;letter-spacing:.02em;color:var(--brand-primary);background:var(--brand-tint);border-radius:4px;padding:2px 8px}
+.pos{font-size:.875rem;color:var(--muted);line-height:1.45}
+.empty{color:var(--muted);padding-block:24px}
+
+/* Profile dialog */
+dialog{border:0;padding:0;background:var(--surface);color:var(--text);border-radius:var(--radius);width:min(980px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto}
+dialog::backdrop{background:var(--scrim)}
+.sheet{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);position:relative}
+.big{background:var(--line)}
+.big img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;aspect-ratio:3/4}
+.info{padding:32px 32px 24px;display:grid;gap:22px;align-content:start;min-width:0}
+.info h2{font-weight:800;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.15;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.block{padding-left:14px;border-left:3px solid var(--brand-primary)}
+.lab{font-size:.875rem;font-weight:700;color:var(--brand-primary);margin:0 0 4px}
+.info p{margin:0;max-width:65ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.9375rem;font-weight:600;background:var(--brand-tint);color:var(--brand-primary);border-radius:var(--radius);padding:6px 12px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 18px;border:1px solid var(--brand-primary);border-radius:var(--radius);font:inherit;font-weight:700;font-size:.9375rem;line-height:1.2;cursor:pointer;background:var(--surface);color:var(--brand-primary);transition:background-color .15s,color .15s}
+.btn:hover{background:var(--brand-tint)}
+.btn-primary{background:var(--brand-primary);color:var(--white)}
+.btn-primary:hover{background:var(--brand-accent);color:var(--white)}
+.close{position:absolute;right:12px;top:12px;width:44px;padding:0;font-size:1.5rem;border-color:var(--line)}
+.nav{display:flex;gap:8px}
+
+/* Footer */
+.site-footer{background:var(--brand-deep);color:var(--on-deep);padding-block:28px 32px;font-size:.9375rem}
+.footer-inner p{margin:0 0 8px}
+.site-footer a{color:var(--white);font-weight:700;display:inline-flex;align-items:center;min-height:44px}
+
+@media (min-width:768px){.footer-inner{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}.section-title{font-size:1.75rem}}
+@media (max-width:720px){
+  .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}
+  .chip{flex:none}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .meta{padding:10px 12px 14px}
+  .nm{font-size:.9375rem}.nm span{font-size:.875rem}.pos{font-size:.8125rem}
+  .sheet{grid-template-columns:1fr}
+  .big img{aspect-ratio:4/5;max-height:60vh}
+  .info{padding:22px 18px}
+  .brand-sub{display:none}
+  .header-inner{min-height:64px;gap:8px;padding-block:10px}
+  .brand-mki{padding-right:8px}
+}
+@media (max-width:340px){.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand-mki"><img class="brand-logo-mki" id="mkiLogo" src="assets/img/logo-mki.png" alt="Қазақстан Республикасы Мәдениет және ақпарат министрлігі" width="556" height="100"></div>
+    <div class="brand"><img class="brand-logo" id="brandLogo" src="assets/img/logo-kk.png" alt="Қазақстан қоғамдық даму институты" width="134" height="56"></div>
+    <nav class="lang-switch" aria-label="Тіл / Язык">
+      <button type="button" class="lang-btn" data-lang="kk" lang="kk" aria-pressed="true">ҚАЗ</button>
+      <button type="button" class="lang-btn" data-lang="ru" lang="ru" aria-pressed="false">РУС</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 id="hero-title" class="hero-title" data-i18n-html="hero_title"></h1>
+      <p class="hero-support" data-i18n="hero_lead"></p>
+      <div class="hero-about">
+        <p data-i18n-html="intro_p1"></p>
+        <p data-i18n-html="intro_p2"></p>
+      </div>
+      <div class="hero-facts" id="facts"></div>
+    </div>
+  </section>
+
+  <section class="filters" aria-labelledby="filters-title">
+    <div class="container filters-inner">
+      <h2 id="filters-title" class="section-title" data-i18n="search_title"></h2>
+      <div class="search-row">
+        <input id="q" type="search" data-i18n-ph="search_ph">
+        <span class="count" id="count" aria-live="polite"></span>
+      </div>
+      <p class="chips-label" id="chips-label" data-i18n="ethics"></p>
+      <div class="chips" id="chips" role="group" aria-labelledby="chips-label"></div>
+    </div>
+  </section>
+
+  <section class="people" data-i18n-aria="people">
+    <div class="container">
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden data-i18n="empty"></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p data-i18n="footer_copy"></p>
+    <p data-i18n="footer_address"></p>
+    <p><a href="https://kipd.kz" rel="noopener" target="_blank">kipd.kz</a></p>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlgName">
+  <div class="sheet">
+    <button class="btn close" id="dlgClose" data-i18n-aria="close">×</button>
+    <div class="big"><img id="dlgImg" alt=""></div>
+    <div class="info">
+      <div style="display:grid;gap:10px;padding-right:44px">
+        <h2 id="dlgName"></h2>
+        <span class="deg" id="dlgDeg"></span>
+      </div>
+      <div class="block"><p class="lab" data-i18n="position"></p><p id="dlgPos"></p></div>
+      <div class="block"><p class="lab" data-i18n="research"></p><p id="dlgRes"></p></div>
+      <div><p class="lab" data-i18n="ethics"></p><div class="tags" id="dlgEth"></div></div>
+      <div class="bar">
+        <span class="count" id="dlgIdx"></span>
+        <div class="nav"><button class="btn" id="prev" data-i18n="prev"></button><button class="btn btn-primary" id="next" data-i18n="next"></button></div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const PEOPLE = [{"id": "01", "name": "Абишев Толеу Рыспекович", "position": "Руководитель отдела теории и методики воспитания Национальной академии образования имени Ы. Алтынсарина", "degree": "PhD кандидат", "research": "Ценностные основы образования и воспитания, формирование школьной среды взаимного уважения и поддержки.", "ethics": ["Этика приветствия, вежливости и взаимоуважения"], "position_kk": "Ы. Алтынсарин атындағы Ұлттық білім академиясының «Тәрбие теориясы және әдістемесі» орталығының басшысы", "research_kk": "Білім беру мен тәрбиенің құндылықтық негіздері, мектепте өзара құрмет пен қолдау ортасын қалыптастыру.", "degree_kk": "PhD докторанты", "photo": "photos/01.jpg", "thumb": "photos/thumb/01.jpg"}, {"id": "02", "name": "Абишева Динара Даирхановна", "position": "Доцент Академии государственного управления при Президенте РК", "degree": "PhD", "research": "Регулирование финансового рынка и обеспечение устойчивости банковской системы. Поведенческая экономика, поведение инвесторов и влияние робо-эдвайзеров на базе искусственного интеллекта на инвестиционные решения.", "ethics": ["Этика проведения семейных мероприятий"], "position_kk": "ҚР Президенті жанындағы Мемлекеттік басқару академиясының доценті", "research_kk": "Қаржы нарығын реттеу және банк жүйесінің тұрақтылығын қамтамасыз ету. Мінез-құлық экономикасы, инвесторлардың мінез-құлқы және жасанды интеллект негізіндегі робо-эдвайзерлердің инвестициялық шешімдерге әсері.", "degree_kk": "PhD", "photo": "photos/02.jpg", "thumb": "photos/thumb/02.jpg"}, {"id": "03", "name": "Аманжолов Дулат Аманжолұлы", "position": "Заместитель директора департамента учета и развития педагогов Национального центра повышения квалификации «Өрлеу» МП РК", "degree": null, "research": "Образовательная политика, профессиональное развитие педагогов и качество школьного образования.", "ethics": ["Этика в цифровой среде", "Этика социального оптимизма", "Этика в сфере инклюзии"], "position_kk": "ҚР ОМ «Өрлеу» біліктілікті арттыру ұлттық орталығының педагогтерді есепке алу және дамыту департаменті директорының орынбасары", "research_kk": "Білім беру саясаты, педагогтердің кәсіби дамуы және мектептегі білім беру сапасы.", "degree_kk": null, "photo": "photos/03.jpg", "thumb": "photos/thumb/03.jpg"}, {"id": "04", "name": "Асанова Гульзат Ергазыновна", "position": "Председатель ОИПиЮЛ «Союз психологов Казахстана»", "degree": null, "research": "Психологические травмы и кризисы, психологическая грамотность населения", "ethics": ["Этика поведения в общественных местах", "Этика поведения на транспорте", "Этика добрососедства"], "position_kk": "«Қазақстан психологтар одағы» дара кәсіпкерлер мен заңды тұлғалар бірлестігінің төрағасы", "research_kk": "Психологиялық жарақаттар мен дағдарыстар, халықтың психологиялық сауаттылығы", "degree_kk": null, "photo": "photos/04.jpg", "thumb": "photos/thumb/04.jpg"}, {"id": "05", "name": "Асанова Жанна Есеновна", "position": "Куратор, художник, основатель платформы Syldyr", "degree": null, "research": "Кураторство выставочных проектов в сфере современного и ювелирного искусства, исследование культурной памяти, идентичности и общественных изменений через украшения и арт-объекты.", "ethics": ["Этика проведения семейных мероприятий", "Этика поведения в общественных местах"], "position_kk": "Куратор, суретші, Syldyr платформасының негізін қалаушы", "research_kk": "Заманауи және зергерлік өнер саласындағы көрме жобаларының кураторлығы, әшекейлер мен арт-объектілер арқылы мәдени жадыны, бірегейлікті және қоғамдағы өзгерістерді зерттеу.", "degree_kk": null, "photo": "photos/05.jpg", "thumb": "photos/thumb/05.jpg"}, {"id": "06", "name": "Аубакирова Аягоз Каиртайевна", "position": "Заместитель директора Национального альянса профессиональных социальных работников", "degree": "PhD кандидат", "research": "Развитие и профессионализация социальной работы в Казахстане, разработка профессиональных стандартов, взаимодействие государства и НПО в сфере социальных услуг и социальной политики.", "ethics": ["Этика в сфере инклюзии"], "position_kk": "Ұлттық кәсіби әлеуметтік қызметкерлер альянсы директорының орынбасары", "research_kk": "Қазақстанда әлеуметтік жұмысты дамыту және кәсібилендіру, кәсіби стандарттарды әзірлеу, әлеуметтік қызметтер мен әлеуметтік саясат саласындағы мемлекет пен ҮЕҰ-ның өзара іс-қимылы.", "degree_kk": "PhD докторанты", "photo": "photos/06.jpg", "thumb": "photos/thumb/06.jpg"}, {"id": "07", "name": "Бермағамбет Рауан Едігеұлы", "position": "Главный эксперт Национального центра развития высшего образования МНВО РК", "degree": null, "research": "Содержание высшего образования и образовательных программ, результаты обучения, микроквалификации и признание ранее полученного образования. Формирование профессиональных и общественных ценностей, инклюзивной культуры и ответственного использования цифровых технологий и искусственного интеллекта.", "ethics": ["Этика в сфере инклюзии", "Этика социального оптимизма", "Этика в цифровой среде"], "position_kk": "ҚР ҒЖБМ Жоғары білім беруді дамыту ұлттық орталығының бас сарапшысы", "research_kk": "Жоғары білім мен білім беру бағдарламаларының мазмұны, оқыту нәтижелері, микробіліктіліктер және бұрын алынған білімді тану. Кәсіби және қоғамдық құндылықтарды, инклюзивті мәдениетті, цифрлық технологиялар мен жасанды интеллектіні жауапкершілікпен пайдалануды қалыптастыру.", "degree_kk": null, "photo": "photos/07.jpg", "thumb": "photos/thumb/07.jpg"}, {"id": "08", "name": "Болатбекқызы Гүлбақыт", "position": "Ведущий научный сотрудник Института законодательства и правовой информации РК МЮ РК", "degree": "PhD", "research": "Защита персональных данных в киберпространстве, информационная безопасность, цифровая трансформация государства.", "ethics": ["Этика в цифровой среде"], "position_kk": "ҚР ӘМ Қазақстан Республикасының Заңнама және құқықтық ақпарат институтының жетекші ғылыми қызметкері", "research_kk": "Киберкеңістіктегі дербес деректерді қорғау, ақпараттық қауіпсіздік, мемлекеттің цифрлық трансформациясы.", "degree_kk": "PhD", "photo": "photos/08.jpg", "thumb": "photos/thumb/08.jpg"}, {"id": "09", "name": "Бутеев Бактияр Оразгалиевич", "position": "Главный научный сотрудник Научного института изучения Улуса Джучи", "degree": "PhD", "research": "История тюркских народов, этнография, этнодемография и ономастика. Перевод поэзии Абая и Шакарима на русский и турецкий языки.", "ethics": ["Этика проведения семейных мероприятий"], "position_kk": "Жошы Ұлысын зерделеу ғылыми институтының бас ғылыми қызметкері", "research_kk": "Түркі халықтарының тарихы, этнография, этнодемография және ономастика. Абай мен Шәкәрім поэзиясын орыс және түрік тілдеріне аудару.", "degree_kk": "PhD", "photo": "photos/09.jpg", "thumb": "photos/thumb/09.jpg"}, {"id": "10", "name": "Ермекбаева Жанар Канатовна", "position": "Ведущий менеджер Института прикладных этнополитических исследований", "degree": null, "research": "Прикладная социология, изучение общественного мнения, социальных процессов, настроений, ценностных ориентаций и установок. Освоение методов исследования межэтнических отношений и этносоциальных процессов.", "ethics": ["Этика поведения в общественных местах", "Этика добрососедства"], "position_kk": "Қолданбалы этносаяси зерттеулер институтының жетекші менеджері", "research_kk": "Қолданбалы әлеуметтану, қоғамдық пікірді, әлеуметтік үдерістерді, көңіл-күйді, құндылықтық бағдарлар мен ұстанымдарды зерттеу. Этносаралық қатынастар мен этноәлеуметтік үдерістерді зерттеу әдістерін меңгеру.", "degree_kk": null, "photo": "photos/10.jpg", "thumb": "photos/thumb/10.jpg"}, {"id": "11", "name": "Ермуханбетова Айгерім Ерболатқызы", "position": "Руководитель Центра повышения квалификации Университета международного бизнеса им. К. Сагадиева (г. Алматы)", "degree": "PhD", "research": "Государственное и местное управление, интеллектуальный капитал и человеческий потенциал молодежи, поколенческие различия миллениалов и поколения Z на рынке труда Казахстана.", "ethics": ["Этика в цифровой среде"], "position_kk": "К. Сағадиев атындағы Халықаралық бизнес университетінің (Алматы қ.) Біліктілікті арттыру орталығының басшысы", "research_kk": "Мемлекеттік және жергілікті басқару, жастардың зияткерлік капиталы мен адами әлеуеті, Қазақстан еңбек нарығындағы миллениалдар мен Z буынының ұрпақтық айырмашылықтары.", "degree_kk": "PhD", "photo": "photos/11.jpg", "thumb": "photos/thumb/11.jpg"}, {"id": "12", "name": "Ибрагим Айдос Ерболұлы", "position": "Старший преподаватель кафедры психологии Евразийского Национального университета имени Л.Н. Гумилева", "degree": "PhD", "research": "Превентивная психология и аддиктология, профилактика девиантного поведения и зависимостей (химических, игровых и цифровых), психологическая реабилитация людей с зависимостью и созависимостью.", "ethics": ["Этика в цифровой среде", "Этика проведения семейных мероприятий", "Этика добрососедства"], "position_kk": "Л.Н. Гумилев атындағы Еуразия ұлттық университеті психология кафедрасының аға оқытушысы", "research_kk": "Превентивті психология және аддиктология, девиантты мінез-құлық пен тәуелділіктің (химиялық, ойын және цифрлық) алдын алу, тәуелділігі және қосалқы тәуелділігі бар адамдарды психологиялық оңалту.", "degree_kk": "PhD", "photo": "photos/12.jpg", "thumb": "photos/thumb/12.jpg"}, {"id": "13", "name": "Исмагулова Жансая Бердимуратовна", "position": "Советник учредителя РОО «Сенімен Болашақ», генеральный директор ТОО «NJS»", "degree": null, "research": "Гражданское общество и вопросы внутренней политики", "ethics": ["Этика приветствия, вежливости и взаимоуважения", "Этика поведения в общественных местах", "Этика в сфере инклюзии", "Этика социального оптимизма"], "position_kk": "«Сенімен Болашақ» РҚБ құрылтайшысының кеңесшісі, «NJS» ЖШС бас директоры", "research_kk": "Азаматтық қоғам және ішкі саясат мәселелері", "degree_kk": null, "photo": "photos/13.jpg", "thumb": "photos/thumb/13.jpg"}, {"id": "14", "name": "Испенбетова Лилия Амангельдиевна", "position": "Старший преподаватель Высшей школы права Maqsut Narikbayev University, эксперт Научно-аналитического центра MIND", "degree": "PhD кандидат", "research": "Международное право, образование, правовое регулирование искусственного интеллекта, защита персональных данных, юридическая и цифровая этика, инклюзия, академическая добросовестность. Антикоррупционная политика, комплаенс, правовая и антикоррупционная экспертиза нормативных правовых актов.", "ethics": ["Этика в цифровой среде", "Этика социального оптимизма", "Этика в сфере инклюзии", "Этика поведения в общественных местах"], "position_kk": "Maqsut Narikbayev University Жоғары құқық мектебінің аға оқытушысы, MIND ғылыми-талдау орталығының сарапшысы", "research_kk": "Халықаралық құқық, білім беру, жасанды интеллектіні құқықтық реттеу, дербес деректерді қорғау, заңгерлік және цифрлық этика, инклюзия, академиялық адалдық. Сыбайлас жемқорлыққа қарсы саясат, комплаенс, нормативтік құқықтық актілердің құқықтық және сыбайлас жемқорлыққа қарсы сараптамасы.", "degree_kk": "PhD докторанты", "photo": "photos/14.jpg", "thumb": "photos/thumb/14.jpg"}, {"id": "15", "name": "Калдыбекова Айдана Джаркинбековна", "position": "Сеньор-лектор Astana IT University", "degree": "PhD", "research": "Политическая коммуникация, информационная безопасность, дезинформация и постправда, влияние искусственного интеллекта и цифровых технологий на политические процессы и общественное сознание.", "ethics": ["Этика в цифровой среде"], "position_kk": "Astana IT University сеньор-лекторы", "research_kk": "Саяси коммуникация, ақпараттық қауіпсіздік, жалған ақпарат және постшындық, жасанды интеллект пен цифрлық технологиялардың саяси үдерістер мен қоғамдық санаға әсері.", "degree_kk": "PhD", "photo": "photos/15.jpg", "thumb": "photos/thumb/15.jpg"}, {"id": "16", "name": "Кали Маржан Кахарманкызы", "position": "Сеньор-лектор Школы кибербезопасности Astana IT University", "degree": "PhD кандидат", "research": "Кибербезопасность, цифровая грамотность и применение искусственного интеллекта в образовании. Практико-ориентированные подходы к обучению информационной безопасности, цифровая безопасность детей и семьи, роль родителей и педагогов в формировании безопасного поведения в интернете.", "ethics": ["Этика социального оптимизма", "Этика в цифровой среде", "Этика проведения семейных мероприятий"], "position_kk": "Astana IT University Киберқауіпсіздік мектебінің сеньор-лекторы", "research_kk": "Киберқауіпсіздік, цифрлық сауаттылық және білім беруде жасанды интеллектіні қолдану. Ақпараттық қауіпсіздікті оқытудың практикаға бағдарланған тәсілдері, балалар мен отбасының цифрлық қауіпсіздігі, интернетте қауіпсіз мінез-құлықты қалыптастырудағы ата-аналар мен педагогтердің рөлі.", "degree_kk": "PhD докторанты", "photo": "photos/16.jpg", "thumb": "photos/thumb/16.jpg"}, {"id": "17", "name": "Касимова Гулназ Мухитденовна", "position": "Главный эксперт Казахстанского института стратегических исследований при Президенте РК", "degree": null, "research": "Общественное мнение и социальные изменения, ценностные установки населения, гражданское участие и влияние цифровизации на общественные процессы. Методология социологических исследований, анализ и интерпретация эмпирических данных.", "ethics": ["Этика социального оптимизма"], "position_kk": "ҚР Президенті жанындағы Қазақстан стратегиялық зерттеулер институтының бас сарапшысы", "research_kk": "Қоғамдық пікір және әлеуметтік өзгерістер, халықтың құндылықтық ұстанымдары, азаматтық қатысу және цифрландырудың қоғамдық үдерістерге әсері. Әлеуметтанулық зерттеулер әдіснамасы, эмпирикалық деректерді талдау және интерпретациялау.", "degree_kk": null, "photo": "photos/17.jpg", "thumb": "photos/thumb/17.jpg"}, {"id": "18", "name": "Нариманов Нурдаулет Муратович", "position": "Старший эксперт Казахстанского института стратегических исследований при Президенте РК", "degree": null, "research": "Политическая экономия, экономическая идеология и стратегическое государственное управление. Экономическая этика, философия экономики и ценностные основы социально-экономического развития. Влияние цифровой трансформации и искусственного интеллекта на экономическую политику и общество.", "ethics": ["Этика в цифровой среде", "Этика социального оптимизма", "Этика проведения семейных мероприятий"], "position_kk": "ҚР Президенті жанындағы Қазақстан стратегиялық зерттеулер институтының аға сарапшысы", "research_kk": "Саяси экономия, экономикалық идеология және стратегиялық мемлекеттік басқару. Экономикалық этика, экономика философиясы және әлеуметтік-экономикалық дамудың құндылықтық негіздері. Цифрлық трансформация мен жасанды интеллектінің экономикалық саясат пен қоғамға әсері.", "degree_kk": null, "photo": "photos/18.jpg", "thumb": "photos/thumb/18.jpg"}, {"id": "19", "name": "Нурлаков Арофат Абдіхалықұлы", "position": "Вице-президент МОФ «Білім-Инновация»", "degree": "PhD кандидат", "research": "Подготовка экспертных докладов, разработка программ решения общественных проблем, адаптация научно-экспертных данных для медиа, PR и маркетинговых стратегий.", "ethics": ["Этика социального оптимизма", "Этика в цифровой среде"], "position_kk": "«Білім-Инновация» халықаралық қоғамдық қорының вице-президенті", "research_kk": "Сараптамалық баяндамалар дайындау, қоғамдық мәселелерді шешу бағдарламаларын әзірлеу, ғылыми-сараптамалық деректерді медиаға, PR және маркетингтік стратегияларға бейімдеу.", "degree_kk": "PhD докторанты", "photo": "photos/19.jpg", "thumb": "photos/thumb/19.jpg"}, {"id": "20", "name": "Нұртай Жадыра Тастенбекқызы", "position": "Заведующая кафедрой «Химический инжиниринг и рациональное природопользование» АО «КазУТБ им. К. Кулажанова»", "degree": "PhD", "research": "Экологическая безопасность, рациональное природопользование, управление отходами и устойчивое развитие. Экологическая культура общества, научно-экспертное сопровождение государственных инициатив и реализации экологической политики.", "ethics": ["Этика поведения в общественных местах"], "position_kk": "«Қ. Құлажанов атындағы ҚазТБУ» АҚ «Химиялық инжиниринг және табиғатты тиімді пайдалану» кафедрасының меңгерушісі", "research_kk": "Экологиялық қауіпсіздік, табиғатты ұтымды пайдалану, қалдықтарды басқару және тұрақты даму. Қоғамның экологиялық мәдениеті, мемлекеттік бастамаларды және экологиялық саясатты іске асыруды ғылыми-сараптамалық сүйемелдеу.", "degree_kk": "PhD", "photo": "photos/20.jpg", "thumb": "photos/thumb/20.jpg"}, {"id": "21", "name": "Оралбекова Жансая Оралбекқызы", "position": "Старший психолог (Research and Analytics) Назарбаев Университета", "degree": null, "research": "Контекстуальная поведенческая наука, терапия принятия и ответственности (ACT), психологическая гибкость и ценностно-ориентированное поведение студентов и медицинских работников в условиях стресса и психологического неблагополучия. Цифровые технологии в сфере психического здоровья.", "ethics": ["Этика в сфере инклюзии", "Этика социального оптимизма", "Этика в цифровой среде"], "position_kk": "Назарбаев Университетінің аға психологы (Research and Analytics)", "research_kk": "Контекстуалды мінез-құлық ғылымы, қабылдау және жауапкершілік терапиясы (ACT), күйзеліс және психологиялық әл-ауқаттың нашарлауы жағдайындағы студенттер мен медицина қызметкерлерінің психологиялық икемділігі мен құндылыққа бағдарланған мінез-құлқы. Психикалық денсаулық саласындағы цифрлық технологиялар.", "degree_kk": null, "photo": "photos/21.jpg", "thumb": "photos/thumb/21.jpg"}, {"id": "22", "name": "Оспанова Айгерим Маратовна", "position": "Декан факультета музыковедения, арт-менеджмента и социально-гуманитарных дисциплин Казахской национальной консерватории им. Курмангазы", "degree": "PhD", "research": "Арт-менеджмент и креативная экономика, экономический потенциал казахского традиционного и современного искусства, его продвижение на сцене и в цифровой среде. Развитие арт-менеджмента как профессии, подготовка кадров и разработка профессиональных стандартов для креативных индустрий.", "ethics": ["Этика в цифровой среде", "Этика проведения семейных мероприятий", "Этика поведения в общественных местах"], "position_kk": "Құрманғазы атындағы Қазақ ұлттық консерваториясының музыкатану, арт-менеджмент және әлеуметтік-гуманитарлық пәндер факультетінің деканы", "research_kk": "Арт-менеджмент және креативті экономика, қазақтың дәстүрлі және заманауи өнерінің экономикалық әлеуеті, оны сахнада және цифрлық ортада ілгерілету. Арт-менеджментті кәсіп ретінде дамыту, кадрлар даярлау және креативті индустрияларға арналған кәсіби стандарттарды әзірлеу.", "degree_kk": "PhD", "photo": "photos/22.jpg", "thumb": "photos/thumb/22.jpg"}, {"id": "23", "name": "Сабитова Алия Оралбекқызы", "position": "Президент ОЮЛ «Ассоциация развития инклюзивного общества»", "degree": null, "research": "Инклюзивное образование, профессиональное развитие педагогов, внедрение системных инклюзивных практик. Коллаборативные модели подготовки учителей, сопровождение подростков и молодых людей с инвалидностью в переходе ко взрослой жизни (после 18 лет), механизмы их социальной адаптации, образования и трудоустройства.", "ethics": ["Этика приветствия, вежливости и взаимоуважения", "Этика в сфере инклюзии", "Этика социального оптимизма"], "position_kk": "«Инклюзивті қоғамды дамыту қауымдастығы» заңды тұлғалар бірлестігінің президенті", "research_kk": "Инклюзивті білім беру, педагогтердің кәсіби дамуы, жүйелі инклюзивті тәжірибелерді енгізу. Мұғалімдерді даярлаудың коллаборативтік модельдері, мүгедектігі бар жасөспірімдер мен жастарды ересек өмірге өту кезеңінде (18 жастан кейін) сүйемелдеу, олардың әлеуметтік бейімделуі, білім алуы және жұмысқа орналасуы тетіктері.", "degree_kk": null, "photo": "photos/23.jpg", "thumb": "photos/thumb/23.jpg"}, {"id": "24", "name": "Сарсен Сара Шариповна", "position": "Со-руководитель HR-сообщества Smile HR Club, основатель рекрутингового и консалтингового агентства UMAY", "degree": null, "research": "Управление персоналом и развитие трудовых отношений в Казахстане. Кадровая аналитика, наставничество, влияние профессиональных сообществ на адаптацию сотрудников, их профессиональное развитие и профилактику выгорания.", "ethics": ["Этика приветствия, вежливости и взаимоуважения", "Этика социального оптимизма", "Этика в цифровой среде"], "position_kk": "Smile HR Club HR-қауымдастығының тең жетекшісі, UMAY рекрутингтік және консалтингтік агенттігінің негізін қалаушы", "research_kk": "Қазақстандағы персоналды басқару және еңбек қатынастарын дамыту. Кадрлық аналитика, тәлімгерлік, кәсіби қауымдастықтардың қызметкерлердің бейімделуіне, кәсіби дамуына және кәсіби күйіп-жанудың алдын алуға әсері.", "degree_kk": null, "photo": "photos/24.jpg", "thumb": "photos/thumb/24.jpg"}, {"id": "25", "name": "Ускенбаева Махаббат Казбековна", "position": "И.о. руководителя HR-направления Kazdream IT Holding", "degree": null, "research": "Управление карьерой, рынок труда, вопросы гендерного равенства на рабочем месте.", "ethics": ["Этика в цифровой среде"], "position_kk": "Kazdream IT Holding HR-бағыты басшысының м.а.", "research_kk": "Мансапты басқару, еңбек нарығы, жұмыс орнындағы гендерлік теңдік мәселелері.", "degree_kk": null, "photo": "photos/25.jpg", "thumb": "photos/thumb/25.jpg"}];
+const ETH_KK = {"Этика приветствия, вежливости и взаимоуважения": "Сәлемдесу, сыпайылық және өзара құрмет әдебі", "Этика проведения семейных мероприятий": "Отбасылық іс-шараларды өткізу әдебі", "Этика в цифровой среде": "Цифрлық ортадағы әдеп", "Этика социального оптимизма": "Әлеуметтік оптимизм әдебі", "Этика в сфере инклюзии": "Инклюзия саласындағы әдеп", "Этика поведения в общественных местах": "Қоғамдық орындарда өзін ұстау әдебі", "Этика поведения на транспорте": "Көлікте өзін ұстау әдебі", "Этика добрососедства": "Тату көршілік әдебі"};
+// Kazakh is always the first language shown; Russian is one click away.
+const I18N = {
+  kk: {
+    doc_title: 'Қатысушылар | Sarapshy | ҚҚДИ',
+    hero_title: '<span class="hero-accent">«Sarapshy»</span> медиажобасының қатысушылары',
+    hero_lead: 'Жоба сарапшылары, олардың лауазымдары, кәсіби және ғылыми бағыттары, сондай-ақ әдеп саласындағы тақырыптары',
+    intro_p1: 'Қазақстандық қоғамдық даму институты зерттеулер, деректер және нақты қоғамдық үдерістерге сүйене отырып, жаңа қоғамдық әдеп туралы кәсіби әрі көпшілікке түсінікті тілде пікір білдіре алатын сарапшылар пулын қалыптастыруға бағытталған <strong>«Sarapshy»</strong> медиажобасын іске қосты.',
+    intro_p2: 'Жоба Қазақстан Республикасы Мәдениет және ақпарат министрлігінің қолдауымен жүзеге асырылуда.',
+    fact_people: 'Қатысушылар', fact_topics: 'Әдеп бағыттары',
+    search_title: 'Қатысушыларды іздеу', search_ph: 'Аты-жөні, ұйым немесе тақырып',
+    ethics: 'Әдеп бағыты', all: 'Барлығы', people: 'Қатысушылар',
+    shown_all: n => `Барлығы көрсетілген: ${n}`, found: (a, n) => `Табылды: ${a} / ${n}`,
+    empty: 'Ешкім табылмады. Сұрауды өзгертіңіз немесе «Барлығы» батырмасын таңдаңыз.',
+    position: 'Лауазымы', research: 'Кәсіби ғылыми бағыты',
+    prev: '← Алдыңғы', next: 'Келесі →', of: (a, n) => `${a} / ${n}`, close: 'Жабу',
+    footer_copy: '© «Қазақстан қоғамдық даму институты» КЕАҚ, 2026',
+    footer_address: 'Астана қ., Қабанбай батыр даңғылы, 11/5, «Нұрлы Орда» БО',
+    logo_src: 'assets/img/logo-kk.png', logo_alt: 'Қазақстан қоғамдық даму институты',
+    mki_alt: 'Қазақстан Республикасы Мәдениет және ақпарат министрлігі', brand_sub: 'медиажоба'
+  },
+  ru: {
+    doc_title: 'Участники | Sarapshy | КИОР',
+    hero_title: 'Участники медиапроекта <span class="hero-accent">«Sarapshy»</span>',
+    hero_lead: 'Эксперты проекта, их должности, профессиональные и научные направления, а также тематика в сфере этики',
+    intro_p1: 'Казахстанский институт общественного развития запустил медиапроект <strong>«Sarapshy»</strong>, направленный на формирование пула экспертов, способных профессионально и доступно говорить о новой общественной этике, опираясь на исследования, данные и реальные общественные процессы.',
+    intro_p2: 'Проект реализуется при поддержке Министерства культуры и информации Республики Казахстан.',
+    fact_people: 'Участников', fact_topics: 'Направлений по этике',
+    search_title: 'Поиск участников', search_ph: 'Имя, организация или тема',
+    ethics: 'Направление по этике', all: 'Все', people: 'Участники',
+    shown_all: n => `Показаны все ${n}`, found: (a, n) => `Найдено: ${a} из ${n}`,
+    empty: 'Никто не найден. Измените запрос или выберите «Все».',
+    position: 'Должность', research: 'Профессиональное научное направление',
+    prev: '← Назад', next: 'Далее →', of: (a, n) => `${a} из ${n}`, close: 'Закрыть',
+    footer_copy: '© НАО «Казахстанский институт общественного развития», 2026',
+    footer_address: 'г. Астана, пр. Кабанбай батыра, 11/5, БЦ «Нұрлы Орда»',
+    logo_src: 'assets/img/logo-ru.png', logo_alt: 'Казахстанский институт общественного развития',
+    mki_alt: 'Министерство культуры и информации Республики Казахстан', brand_sub: 'медиапроект'
+  }
+};
+let lang = 'kk';
+const T = k => I18N[lang][k];
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; };
+let active = null, visible = PEOPLE.slice(), current = -1;
+
+// Per-language fields of a participant. Names are never translated.
+const F = p => lang === 'kk'
+  ? { position: p.position_kk, research: p.research_kk, degree: p.degree_kk, ethics: p.ethics.map(e => ETH_KK[e] || e) }
+  : { position: p.position, research: p.research, degree: p.degree, ethics: p.ethics };
+const ethLabel = e => lang === 'kk' ? (ETH_KK[e] || e) : e;
+
+const topics = {};
+PEOPLE.forEach(p => p.ethics.forEach(e => topics[e] = (topics[e] || 0) + 1));
+const order = Object.keys(topics).sort((a, b) => topics[b] - topics[a] || a.localeCompare(b, 'ru'));
+
+function chip(label, n, val) {
+  const b = el('button', 'chip'); b.type = 'button'; b.setAttribute('aria-pressed', String(active === val));
+  b.append(el('span', null, label), el('span', 'n', n));
+  b.onclick = () => { active = active === val ? null : val; render(); };
+  return b;
+}
+function splitName(n) { const i = n.indexOf(' '); return i < 0 ? [n, ''] : [n.slice(0, i), n.slice(i + 1)]; }
+
+function render() {
+  $('#chips').replaceChildren(chip(T('all'), PEOPLE.length, null), ...order.map(t => chip(ethLabel(t), topics[t], t)));
+  const q = $('#q').value.trim().toLowerCase();
+  visible = PEOPLE.filter(p => (!active || p.ethics.includes(active)) &&
+    (!q || [p.name, p.position, p.research, p.position_kk, p.research_kk, p.ethics.join(' '), p.ethics.map(e => ETH_KK[e] || '').join(' ')].join(' ').toLowerCase().includes(q)));
+  const g = $('#grid'); g.replaceChildren();
+  visible.forEach((p, i) => {
+    const f = F(p);
+    const b = el('button', 'card'); b.type = 'button'; b.setAttribute('aria-label', p.name);
+    const ph = el('div', 'ph'); const img = new Image(); img.src = p.thumb; img.alt = ''; img.loading = i < 8 ? 'eager' : 'lazy'; img.decoding = 'async'; ph.append(img);
+    const m = el('div', 'meta'); const [sur, rest] = splitName(p.name);
+    const nm = el('div', 'nm', sur); nm.append(el('span', null, rest)); m.append(nm);
+    if (f.degree) m.append(el('span', 'deg', f.degree));
+    m.append(el('div', 'pos', f.position));
+    b.append(ph, m); b.onclick = () => openP(p.id); g.append(b);
+  });
+  $('#empty').hidden = visible.length > 0;
+  $('#count').textContent = visible.length === PEOPLE.length ? T('shown_all')(PEOPLE.length) : T('found')(visible.length, PEOPLE.length);
+}
+
+function applyLang(l) {
+  lang = I18N[l] ? l : 'kk';
+  document.documentElement.lang = lang;
+  document.title = T('doc_title');
+  $$('[data-i18n]').forEach(n => n.textContent = T(n.dataset.i18n));
+  $$('[data-i18n-html]').forEach(n => n.innerHTML = T(n.dataset.i18nHtml));
+  $$('[data-i18n-ph]').forEach(n => { n.placeholder = T(n.dataset.i18nPh); n.setAttribute('aria-label', T(n.dataset.i18nPh)); });
+  $$('[data-i18n-aria]').forEach(n => n.setAttribute('aria-label', T(n.dataset.i18nAria)));
+  $$('.lang-btn').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  const logo = $('#brandLogo'); if (logo) { logo.src = T('logo_src'); logo.alt = T('logo_alt'); }
+  const mki = $('#mkiLogo'); if (mki) mki.alt = T('mki_alt');
+  const sub = $('.brand-sub'); if (sub) sub.textContent = T('brand_sub');
+  $('#facts').replaceChildren(...[[T('fact_people'), PEOPLE.length], [T('fact_topics'), order.length]]
+    .map(([lab, v]) => { const d = el('p', 'fact'); d.append(el('span', null, lab + ':'), el('strong', null, String(v))); return d; }));
+  render();
+  if (dlg.open && current >= 0) { const list = visible.length ? visible : PEOPLE; openP(list[current] ? list[current].id : PEOPLE[0].id); }
+}
+
+const dlg = $('#dlg');
+function openP(id) {
+  const p = PEOPLE.find(x => x.id === id); if (!p) return;
+  const f = F(p);
+  const list = visible.length ? visible : PEOPLE; current = list.findIndex(x => x.id === p.id);
+  if (current < 0) current = 0;
+  $('#dlgImg').src = p.photo; $('#dlgImg').alt = p.name;
+  $('#dlgName').textContent = p.name;
+  $('#dlgDeg').textContent = f.degree || ''; $('#dlgDeg').hidden = !f.degree;
+  $('#dlgPos').textContent = f.position; $('#dlgRes').textContent = f.research;
+  $('#dlgEth').replaceChildren(...f.ethics.map(e => el('span', 'tag', e)));
+  $('#dlgIdx').textContent = T('of')(current + 1, list.length);
+  if (!dlg.open) dlg.showModal();
+  if (location.hash !== '#p-' + id) history.replaceState(null, '', '#p-' + id);
+}
+function step(d) { const list = visible.length ? visible : PEOPLE; openP(list[(current + d + list.length) % list.length].id); }
+$('#prev').onclick = () => step(-1); $('#next').onclick = () => step(1);
+$('#dlgClose').onclick = () => dlg.close();
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener('close', () => { if (location.hash) history.replaceState(null, '', location.pathname + location.search); });
+dlg.addEventListener('keydown', e => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+$('#q').addEventListener('input', render);
+$$('.lang-btn').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+function fromHash() { const m = location.hash.match(/^#p-(\d{2})$/); if (m) openP(m[1]); else if (dlg.open) dlg.close(); }
+window.addEventListener('hashchange', fromHash);
+applyLang('kk'); fromHash();
+
+</script>
+
+</body>
+</html>
